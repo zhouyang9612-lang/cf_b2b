@@ -47,13 +47,28 @@ A professional B2B product exhibition website built on Cloudflare Workers with D
 
 ## Deployment Steps
 
-### 1. Install Dependencies
+### 1. Install Node.js
+
+Before you begin, ensure Node.js is installed on your system (version 16 or higher recommended).
+
+**Download and Install:**
+- Visit [Node.js official website](https://nodejs.org/)
+- Download the LTS (Long Term Support) version
+- Run the installer and follow the installation wizard
+- Verify installation:
+
+```bash
+node --version
+npm --version
+```
+
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Create D1 Database
+### 3. Create D1 Database
 
 ```bash
 # Create database
@@ -62,9 +77,9 @@ wrangler d1 create b2b_database
 # Note the database_id from output and update wrangler.toml
 ```
 
-### 3. Update Configuration
+### 4. Update Configuration
 
-Edit `wrangler.toml` and replace `database_id` with the actual ID from step 2:
+Edit `wrangler.toml` and replace `database_id` with the actual ID from step 3:
 
 ```toml
 [[d1_databases]]
@@ -73,7 +88,7 @@ database_name = "b2b_database"
 database_id = "your-database-id"  # Replace this
 ```
 
-### 4. Create R2 Storage Bucket (for image uploads)
+### 5. Create R2 Storage Bucket (for image uploads)
 
 ```bash
 # Create R2 bucket
@@ -88,7 +103,7 @@ binding = "IMAGES"
 bucket_name = "b2b-product-images"
 ```
 
-### 5. Create KV Namespace (for website settings)
+### 6. Create KV Namespace (for website settings)
 
 ```bash
 # Create KV namespace for production
@@ -107,7 +122,7 @@ id = "your-kv-namespace-id"  # Replace this
 preview_id = "your-preview-kv-namespace-id"  # Optional, for local dev
 ```
 
-### 6. Initialize Database
+### 7. Initialize Database
 
 ```bash
 # Execute database schema
@@ -121,7 +136,7 @@ This will create:
   - **Regular Admin**: username `staff`, password `staff123`
 - Sample products for testing
 
-### 7. Local Development
+### 8. Local Development
 
 ```bash
 npm run dev
@@ -131,7 +146,7 @@ Visit http://localhost:8787 to test the website.
 
 **Admin Login**: Access http://localhost:8787/admin to log in.
 
-### 8. Deploy to Cloudflare
+### 9. Deploy to Cloudflare
 
 ```bash
 npm run deploy
