@@ -20,3 +20,4 @@ bucket_name = "b2b-product-images"
 [[kv_namespaces]]
 binding = "STATIC_ASSETS" #
 id = "669a4c71aaff4ebcaa34192f92d4b1c1" # 从 Cloudflare 获取的 KV Namespace ID
+preview_id = "669a4c71aaff4ebcaa34192f92d4b1c1"
